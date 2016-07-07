@@ -1,0 +1,78 @@
+body {
+    background-image: url("/images/1.jpg");
+    background-size: cover;
+    background-repeat:repeat-y;
+}
+nav {
+    width: 100%;
+    text-align: center;
+}
+nav ul {
+    border-radius:20px;
+    background:linear-gradient(rgba(204,0,0,0.5) 225%, rgba(154,0,0,0.1) 25%, rgba(154,0,0,0.1) 50%, rgba(154,0,0,0.1) 50%);
+    /* background: #DF3A03; */
+    padding:10px;
+
+}
+nav ul li {
+    display:inline;
+    padding:0 50px;
+}
+nav ul li a {
+    padding: 10px;
+    color: #F89E11;
+    font-size: 18px;
+    font-family: Arial;
+    text-decoration: none;
+    display: inline;
+}
+#footer {
+    position: fixed;
+    bottom: 0%;
+    width: 40%;
+    text-align: center;
+    margin-left: 30%;
+    color: #F89E11;
+
+}
+#content {
+    width:100%;
+    text-align: center;
+    color:red;
+}
+
+/* ---------- css form upload -------------- */
+form {
+    margin:90 100px;
+    padding: 10px 10px;
+    max-width:270px;
+    background:linear-gradient(rgba(204,0,0,0.1) 225%, rgba(154,0,0,0.1) 25%, rgba(154,0,0,0.1) 50%, rgba(154,0,0,0.1) 50%);
+    border-radius:50px;
+}
+input[type="file"] {
+    display:none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin:0 20px;
+    padding: 6px 12px;
+    cursor: pointer;
+    color:white;
+    width:200px;
+    border-radius:20px;
+}
+input[type="submit"] {
+    display:none;
+}
+.custom-submit {
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin:0 20px;
+    padding: 6px 12px;
+    cursor: pointer;
+    color:white;
+    width:200px;
+    border-radius:20px;
+}
+/* -------------------------------- */
