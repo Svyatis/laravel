@@ -25,7 +25,7 @@ class UploadController extends Controller
         else {
             // checking file is valid.
             if (Request::file('image')->isValid()) {
-                $destinationPath = 'uploads'; // upload path
+                $destinationPath = '/var/www/html/uploads'; // upload path
                 $extension = Request::file('image')->getClientOriginalExtension(); // getting image extension
                 $fileName = rand(11111,99999).'.'.$extension; // renameing image
                 Request::file('image')->move($destinationPath, $fileName); // uploading file to given path

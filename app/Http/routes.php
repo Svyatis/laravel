@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'ViewController@index');
 
-Route::get('aboutUs', 'HomeController@aboutUs');
-Route::get('upload', 'HomeController@upload');
-Route::get('blog', 'HomeController@blog');
+Route::get('aboutUs', 'ViewController@aboutUs');
+Route::get('upload', 'ViewController@upload');
+Route::get('blog', 'ViewController@blog');
 // Route::get('contactUs', 'HomeController@contactUs');
 
 Route::get('contactUs',
@@ -34,3 +34,8 @@ Route::get('date', function()
     $date2=date("d.m.y", strtotime("tomorrow"));
     return view('test.date',['today'=>$date,'tomorrow'=>$date2]);
 });
+Route::auth();
+
+Route::get('/home', 'ViewController@blog');
+
+Route::post('testing', 'UploadController@upload');
