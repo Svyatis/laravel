@@ -23,9 +23,6 @@
     </ul>
     </nav>
 </nav>
-<div id="header">
-    <h1> @yield('header')</h1>
-</div>
 
 <div id="content">
 
@@ -33,13 +30,7 @@
 </div>
 
 <div id="footer">
-    <nav>
-        <ul>
-            <li>
                 <a id="/" href="/">Copyright © 2016 svyatis.com</a>
-            </li>
-        </ul>
-    </nav>
 </div>
 </body>
 </html>

@@ -1,0 +1,22 @@
+-----------------------
+softserve vpn server
+sslvpn.softserveinc.com
+-----------------------
+
+-----------------------
+ubuntu skype show groups
+/msnp24
+-----------------------
+
+-----------------------
+reconfig phpmyadmin
+sudo dpkg-reconfigure phpmyadmin
+-----------------------
+reconfig mysql
+sudo dpkg-reconfigure mysql-server-5.5
+-----------------------
+add link for configurate phpmyadmin
+sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+sudo a2enconf phpmyadmin.conf
+sudo service apache2 reload
+-----------------------

@@ -16,8 +16,17 @@ Route::get('/', 'HomeController@index');
 Route::get('aboutUs', 'HomeController@aboutUs');
 Route::get('upload', 'HomeController@upload');
 Route::get('blog', 'HomeController@blog');
-Route::get('contactUs', 'HomeController@contactUs');
+// Route::get('contactUs', 'HomeController@contactUs');
 
+Route::get('contactUs',
+    ['as' => 'contact', 'uses' => 'AboutController@create']);
+Route::post('contactUs',
+    ['as' => 'contact_store', 'uses' => 'AboutController@store']);
+
+Route::get('upload', function() {
+    return View::make('test.upload');
+});
+Route::post('apply/upload', 'UploadController@upload');
 
 Route::get('date', function()
 {

@@ -24,8 +24,16 @@ class HomeController extends Controller
     {
         return view('test.blog');
     }
-    public function contactUs()
+    /* public function contactUs()
     {
         return view('test.contactUs');
+    } */
+    public function create()
+    {
+        return view('test.contactUs');
+    }
+
+    public function store()
+    {
     }
 }
