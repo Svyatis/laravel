@@ -184,3 +184,11 @@ input[type="file"] {
     color: red;
     border: 1px solid red;
 }
+
+/* ----------- Session messages --------------- */
+.alert-info {
+    color: #F89E11;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 20px;
+}

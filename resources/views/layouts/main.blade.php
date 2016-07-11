@@ -9,20 +9,26 @@
 
     <ul>
         <li>
-            <a id="course" href="aboutUs">ABOUT US</a>
+            <a id="course" href="{{ url('aboutUs') }}">ABOUT US</a>
         </li>
         <li>
-            <a id="upload" href="upload">UPLOAD</a>
+            <a id="upload" href="{{ url('upload') }}">UPLOAD</a>
         </li>
         <li>
-            <a id="blog" href="blog">BLOG</a>
+            <a id="blog" href="{{ url('blog') }}">BLOG</a>
         </li>
         <li>
-            <a id="contactUs" href="contactUs">CONTACT US</a>
+            <a id="contactUs" href="{{ url('contactUs') }}">CONTACT US</a>
         </li>
     </ul>
     </nav>
 </nav>
+
+@if(Session::has('message'))
+    <div class="alert-info">
+        {{Session::get('message')}}
+    </div>
+@endif
 
 <div id="content">
 
@@ -30,7 +36,7 @@
 </div>
 
 <div id="footer">
-                <a id="/" href="/">Copyright © 2016 svyatis.com</a>
+                <a id="\\" href="{{ url('\\') }}">Copyright © 2016 svyatis.com</a>
 </div>
 </body>
 </html>

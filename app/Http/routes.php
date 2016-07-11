@@ -10,32 +10,23 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+// ViewController
 Route::get('/', 'ViewController@index');
-
 Route::get('aboutUs', 'ViewController@aboutUs');
-Route::get('upload', 'ViewController@upload');
 Route::get('blog', 'ViewController@blog');
-// Route::get('contactUs', 'HomeController@contactUs');
 
+// Contact Form
 Route::get('contactUs',
     ['as' => 'contact', 'uses' => 'AboutController@create']);
 Route::post('contactUs',
     ['as' => 'contact_store', 'uses' => 'AboutController@store']);
 
+// Upload Form
 Route::get('upload', function() {
-    return View::make('test.upload');
+    return View::make('Upload.upload');
 });
 Route::post('apply/upload', 'UploadController@upload');
 
-Route::get('date', function()
-{
-    $date=date("d.m.y");
-    $date2=date("d.m.y", strtotime("tomorrow"));
-    return view('test.date',['today'=>$date,'tomorrow'=>$date2]);
-});
+// Authentication
 Route::auth();
-
 Route::get('/home', 'ViewController@blog');
-
-Route::post('testing', 'UploadController@upload');
