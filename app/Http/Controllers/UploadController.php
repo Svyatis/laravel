@@ -15,7 +15,8 @@ class UploadController extends Controller
      *
      * @return void
      */
-    public function upload() {
+    public function upload() 
+    {
 
     // getting all of the post data
     $file = ['image' => Input::file('image')];
@@ -26,12 +27,14 @@ class UploadController extends Controller
     // doing the validation, passing post data, rules and the messages
     $validator = Validator::make($file, $rules);
 
-    if ($validator->fails()) {
+    if ($validator->fails()) 
+    {
         // send back to the page with the input data and errors
         return Redirect::to('upload')->withInput()->withErrors($validator);
     } else {
         // checking file is valid.
-        if (Input::file('image')->isValid()) {
+        if (Input::file('image')->isValid()) 
+        {
             $destinationPath = env('UPLOAD_PATH'); // upload path
             $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
             $fileName = rand(11111,99999).'.'.$extension; // renameing image
@@ -39,12 +42,12 @@ class UploadController extends Controller
             // sending back with message
             Session::flash('success', "Your file is : $destinationPath/$fileName");
             return Redirect::to('upload');
-        }
-        else {
+        } else 
+        {
             // sending back with error message.
             Session::flash('error', 'uploaded file is not valid');
             return Redirect::to('upload');
-        }
+        }   
     }
     }
 }
