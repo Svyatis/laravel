@@ -36,7 +36,7 @@
 </div>
 
 <div id="footer">
-                <a id="\\" href="{{ url('\\') }}">Copyright © 2016 svyatis.com</a>
+                <a id='/' href="{{ url('/') }}">Copyright © 2016 svyatis.com</a>
 </div>
 </body>
 </html>

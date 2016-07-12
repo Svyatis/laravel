@@ -20,7 +20,7 @@
                         <label for="file-upload" class="custom-file-upload">Custom Upload</label>
                         <p class="errors">{!!$errors->first('image')!!}</p>
                         @if(Session::has('error'))
-                            <p class="errors">{!! Session::get('error') !!}</p>
+                            <p class="errors">{{ Session::get('error') }}</p>
                         @endif
                     </div>
                 </div>
