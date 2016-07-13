@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use PHPZen\LaravelRbac\Traits\Rbac;
 
 class User extends Authenticatable
 {

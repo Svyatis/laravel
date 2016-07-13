@@ -11,22 +11,22 @@
     |
 */
 
-// Apply Middleware!
+// Apply Middleware
 Route::group(['middlewareGroups' => ['web']], function () {
     // ViewController...
     Route::get('/', 'HomeWorkController@mainpage');
     Route::get('aboutUs', 'HomeWorkController@aboutUs');
     Route::get('blog', 'HomeWorkController@blog');
 
-    // Contact Form...
+    // Contact Form
     Route::get('contactUs', ['as' => 'contact', 'uses' => 'HomeWorkController@create']);
     Route::post('contactUs', ['as' => 'contact_store', 'uses' => 'HomeWorkController@store']);
 
-// Upload Form
+    // Upload Form
     Route::get('upload', 'HomeWorkController@uploadMake');
     Route::post('apply/upload', 'HomeWorkController@upload');
     
-// Authentication
+    // Authentication
     Route::auth();
     Route::get('/home', 'HomeWorkController@index');
 });

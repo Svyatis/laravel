@@ -3,6 +3,6 @@
 
 @section('content')
 
-    <p>Blog</p>
+        <p>Blog</p>
 
 @endsection

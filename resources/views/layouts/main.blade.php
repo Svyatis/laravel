@@ -20,6 +20,9 @@
         <li>
             <a id="contactUs" href="{{ url('contactUs') }}">CONTACT US</a>
         </li>
+        <li>
+            <a id="logOut" href="{{ url('/logout') }}">LOG OUT</a>
+        </li>
     </ul>
     </nav>
 </nav>

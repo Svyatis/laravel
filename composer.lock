@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cb0a9b0e6775b43c3e8c443892778511",
-    "content-hash": "92490ddc0a91070050d5891ab30b269a",
+    "hash": "764c8ebac3266e0264c0ac8ac9a153bc",
+    "content-hash": "25cd8eea1671661da3ab3059253f79a3",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1069,6 +1069,54 @@
                 "random"
             ],
             "time": "2016-03-18 20:34:03"
+        },
+        {
+            "name": "phpzen/laravel-rbac",
+            "version": "0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpzen/laravel-rbac.git",
+                "reference": "180fc94d42cdfe83d9d866aa74e3395211afd073"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpzen/laravel-rbac/zipball/180fc94d42cdfe83d9d866aa74e3395211afd073",
+                "reference": "180fc94d42cdfe83d9d866aa74e3395211afd073",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.2.*",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPZen\\LaravelRbac\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHPZen",
+                    "email": "phpzen.code@gmail.com",
+                    "homepage": "https://github.com/phpzen",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Role based access control for Laravel 5",
+            "keywords": [
+                "acl",
+                "auth",
+                "laravel",
+                "permissions",
+                "rbac",
+                "roles",
+                "security"
+            ],
+            "time": "2016-01-16 10:59:14"
         },
         {
             "name": "psr/log",

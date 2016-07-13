@@ -10,7 +10,8 @@
         "barryvdh/laravel-ide-helper": "^2.2",
         "laravelcollective/html": "5.2.*",
         "barryvdh/laravel-debugbar": "^2.2",
-        "squizlabs/php_codesniffer": "2.6.1"
+        "squizlabs/php_codesniffer": "2.6.1",
+        "phpzen/laravel-rbac": "^0.2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
