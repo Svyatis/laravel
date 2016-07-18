@@ -20,11 +20,11 @@ Since the invention of the telescope, three more planets have been discovered in
         lies far beyond the orbit of Pluto, in the Oort Cloud.
     </div>
     <div class="imageDiv">
-        <input class="images" type="image" src="images/3.jpg">
-        <input class="images" type="image" src="images/4.jpg">
+        <input class="images" type="image" src="{{ asset("images/3.jpg") }}">
+        <input class="images" type="image" src="{{ asset("images/4.jpg") }}">
     <br>
-        <input class="images" type="image" src="images/5.jpg">
-        <input class="images" type="image" src="images/6.jpg">
+        <input class="images" type="image" src="{{ asset("images/5.jpg") }}">
+        <input class="images" type="image" src="{{ asset("images/6.jpg") }}">
     </div>
 
 @endsection

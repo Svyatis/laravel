@@ -6,11 +6,11 @@
  * Time: 19:36
  */
 
-namespace App\Repositories;
+namespace App\Repositories\CustomerRepository;
 
 use App\Entities\Customer;
 
-class CustomerRepository implements DataBaseInterface
+class CustomerRepository
 {
     /**
      * @var Customer

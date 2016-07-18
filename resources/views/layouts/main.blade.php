@@ -2,11 +2,15 @@
 <head>
     <meta charset='utf-8'/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
-    <title>Global Company</title>
+    <title>{{ trans('main.Global Company') }}</title>
 </head>
 <body>
 <div class="wrapper">
 <nav>
+    <span id="leftBar">
+    <a href="{{ url('/', ['locale' => 'ua']) }}">UA</a>
+    <a href="{{ url('/', ['locale' => 'en']) }}">EN</a>
+    </span>
     <ul>
         <li>
             <a id="course" href="{{ url('aboutUs') }}">ABOUT US</a></span>

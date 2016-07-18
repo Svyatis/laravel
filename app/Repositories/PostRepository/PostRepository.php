@@ -3,26 +3,25 @@
  * Created by PhpStorm.
  * User: svyatis
  * Date: 17.07.16
- * Time: 18:13
+ * Time: 19:28
  */
 
-namespace App\Repositories;
+namespace App\Repositories\PostRepository;
 
-use App\Entities\User;
+use App\Entities\Post;
 
-class UserRepository implements DataBaseInterface
+class PostRepository
 {
-
     /**
-     * @var User
+     * @var Post
      */
     private $model;
 
     /**
-     * UserRepository constructor.
-     * @param User $model
+     * PostRepository constructor.
+     * @param Post $model
      */
-    public function __construct(User $model)
+    public function __construct(Post $model)
     {
         $this->model = $model;
     }
@@ -74,5 +73,13 @@ class UserRepository implements DataBaseInterface
     {
         $this->model->find($id)->delete();
         return true;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Builder|static
+     */
+    public function author()
+    {
+        return $this->model::with('author')->orderBy('id', 'DESC')->paginate(5);
     }
 }

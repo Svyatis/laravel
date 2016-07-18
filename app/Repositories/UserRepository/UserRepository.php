@@ -2,26 +2,27 @@
 /**
  * Created by PhpStorm.
  * User: svyatis
- * Date: 17.07.16
- * Time: 19:33
+ * Date: 18.07.16
+ * Time: 15:16
  */
 
-namespace App\Repositories;
+namespace App\Repositories\UserRepository;
 
-use App\Entities\Order;
+use App\Entities\User;
 
-class OrderRepository implements DataBaseInterface
+class UserRepository
 {
+
     /**
-     * @var Order
+     * @var User
      */
     private $model;
 
     /**
-     * OrderRepository constructor.
-     * @param Order $model
+     * UserRepository constructor.
+     * @param User $model
      */
-    public function __construct(Order $model)
+    public function __construct(User $model)
     {
         $this->model = $model;
     }

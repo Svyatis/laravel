@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\CustomerRepository\CustomerRepository;
 use App\Repositories\DataBaseInterface;
+use App\Repositories\PostRepository\PostRepository;
+use App\Repositories\UserRepository\UserRepository;
+use Collective\Html\HtmlFacade;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Validator;
@@ -17,18 +21,18 @@ class HomeWorkController extends Controller
 {
 
     /**
-     * @var DataBaseInterface
+     * @var PostRepository
      */
-    private $dataBase;
+    private $postRepo;
 
     /**
      * HomeWorkController constructor.
-     * @param DataBaseInterface $dataBase
+     * @param PostRepository $postRepo
      */
-    public function __construct(DataBaseInterface $dataBase)
+    public function __construct(PostRepository $postRepo)
     {
         $this->middleware('auth');
-        $this->dataBase = $dataBase;
+        $this->postRepo = $postRepo;
     }
 
     /**
@@ -100,7 +104,7 @@ class HomeWorkController extends Controller
      */
     public function getBlog()
     {
-        $posts = $this->dataBase->author()->orderBy('id', 'DESC')->paginate(5);
+        $posts = $this->postRepo->author();
         return View::make('HomeWork.addpost')->with('posts', $posts);
     }
 
@@ -110,7 +114,7 @@ class HomeWorkController extends Controller
      */
     public function postAdd(Requests\PostDatabase $request)
     {
-        $this->dataBase->create([
+        $this->postRepo->create([
             'title' => $request->get('title'),
             'content' => $request->get('content'),
             'author_id' => Auth::user()->id
@@ -124,7 +128,7 @@ class HomeWorkController extends Controller
      */
     public function postDelete($postId)
     {
-        $this->dataBase->delete($postId);
+        $this->postRepo->delete($postId);
         return Redirect::route('blog');
     }
 

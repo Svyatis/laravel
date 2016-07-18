@@ -6,22 +6,22 @@
  * Time: 19:28
  */
 
-namespace App\Repositories;
+namespace App\Repositories\OrderRepository;
 
-use App\Entities\Post;
+use App\Entities\Order;
 
-class PostRepository implements DataBaseInterface
+class OrderRepository
 {
     /**
-     * @var Post
+     * @var Order
      */
     private $model;
 
     /**
-     * PostRepository constructor.
-     * @param Post $model
+     * OrderRepository constructor.
+     * @param Order $model
      */
-    public function __construct(Post $model)
+    public function __construct(Order $model)
     {
         $this->model = $model;
     }
@@ -73,13 +73,5 @@ class PostRepository implements DataBaseInterface
     {
         $this->model->find($id)->delete();
         return true;
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Builder|static
-     */
-    public function author()
-    {
-        return $this->model::with('author');
     }
 }

@@ -38,6 +38,18 @@ nav ul li a {
     padding: 17px 17px;
 }
 
+#leftBar a {
+    float: right;
+    padding-top: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+    color: #F8F8F8;
+}
+
+#leftBar a:hover {
+    color: #FF0000;
+}
+
 .rightBar {
     float: right;
 }

@@ -17,7 +17,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::auth();
     Route::get('/', 'HomeWorkController@mainpage');
     Route::get('aboutUs', 'HomeWorkController@aboutUs');
-    Route::get('upload', 'HomeWorkController@uploadMake');
+    Route::get('upload', 'HomeWorkController@uploadMake')->middleware('isAdmin');
     Route::get('blog', ['as' => 'blog', 'uses' => 'HomeWorkController@getBlog']);
     Route::get('contactUs', ['as' => 'contact', 'uses' => 'HomeWorkController@create']);
     Route::get('deletePost/{postId}', ['as' => 'deletePost', 'uses' => 'HomeWorkController@postDelete']);
@@ -27,9 +27,3 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::post('contactUs', ['as' => 'contact_store', 'uses' => 'HomeWorkController@store']);
 
 });
-
-    Route::get('welcome/{locale}', function ($locale) {
-        App::setLocale($locale);
-
-        echo trans('auth.failed');
-    });
