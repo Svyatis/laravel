@@ -5,11 +5,11 @@
     <title>Global Company</title>
 </head>
 <body>
+<div class="wrapper">
 <nav>
-
     <ul>
         <li>
-            <a id="course" href="{{ url('aboutUs') }}">ABOUT US</a>
+            <a id="course" href="{{ url('aboutUs') }}">ABOUT US</a></span>
         </li>
         <li>
             <a id="upload" href="{{ url('upload') }}">UPLOAD</a>
@@ -20,11 +20,16 @@
         <li>
             <a id="contactUs" href="{{ url('contactUs') }}">CONTACT US</a>
         </li>
-        <li>
-            <a id="logOut" href="{{ url('/logout') }}">LOG OUT</a>
-        </li>
+        <span class="rightBar">
+        @if (Auth::guest())
+            <li><a href="{{ url('/login') }}">Login</a></li>
+            <li><a href="{{ url('/register') }}">Register</a></li>
+        @else
+            <li><a><strong>{{ Auth::user()->name }}</strong></a></li>
+            <li><a href="{{ url('/logout') }}">Logout</a></li>
+        @endif
+        </span>
     </ul>
-    </nav>
 </nav>
 
 @if(Session::has('message'))
@@ -34,12 +39,17 @@
 @endif
 
 <div id="content">
-
     @yield('content')
 </div>
 
-<div id="footer">
-                <a id='/' href="{{ url('/') }}">Copyright © 2016 svyatis.com</a>
+<aside>
+    @yield('aside')
+</aside>
+
+<div class="footer">
+    <a href="{{ url('/') }}">Copyright © 2016 svyatis.com</a>
+</div>
+
 </div>
 </body>
 </html>

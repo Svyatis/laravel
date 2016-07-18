@@ -3,8 +3,8 @@
 
 @section('content')
 
-    <p>About Us</p>
-    <p class="textHolder">
+    <div class="textHolder">
+        <p>About Us</p>
     Our Cosmic Neighborhood
 From our small world we have gazed upon the cosmic ocean for thousands of years.
         Ancient astronomers observed points of light that appeared to move among the stars.
@@ -18,7 +18,7 @@ Since the invention of the telescope, three more planets have been discovered in
         In addition, there are thousands of small bodies such as asteroids and comets. Most of the
         asteroids orbit in a region between the orbits of Mars and Jupiter, while the home of comets
         lies far beyond the orbit of Pluto, in the Oort Cloud.
-    </p>
+    </div>
     <div class="imageDiv">
         <input class="images" type="image" src="images/3.jpg">
         <input class="images" type="image" src="images/4.jpg">

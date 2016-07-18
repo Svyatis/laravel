@@ -30,12 +30,12 @@
                   'placeholder'=>'Your e-mail address']) }}
     </div>
     <br>
-    <div class="form-group">
+    <div class="textareaClass">
         {{ Form::label('Your Message') }}
         <br>
         {{ Form::textarea('message', null,
             ['required',
-                  'class'=>'form-control',
+                  'class'=>'textareaClass',
                   'cols'=>'30',
                   'rows'=>'5',
                   'placeholder'=>'Your message']) }}

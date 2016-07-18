@@ -5,9 +5,9 @@ Name: {{ $name }}
 </p>
 
 <p>
-    {{ $email }}
+Email:      {{ $email }}
 </p>
 
 <p>
-    {{ $user_message }}
+Message:    {{ $user_message }}
 </p>

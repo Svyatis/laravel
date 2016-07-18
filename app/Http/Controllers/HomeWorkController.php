@@ -2,27 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\DataBaseInterface;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Validator;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\ContactFormRequest;
+use Illuminate\Support\Facades\View;
 
 class HomeWorkController extends Controller
 {
+
+    /**
+     * @var DataBaseInterface
+     */
+    private $dataBase;
+
     /**
      * HomeWorkController constructor.
+     * @param DataBaseInterface $dataBase
      */
-    public function __construct()
+    public function __construct(DataBaseInterface $dataBase)
     {
         $this->middleware('auth');
+        $this->dataBase = $dataBase;
     }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function index()
     {
@@ -30,7 +40,7 @@ class HomeWorkController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return View
      */
     public function mainpage()
     {
@@ -38,7 +48,7 @@ class HomeWorkController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return View
      */
     public function aboutUs()
     {
@@ -46,15 +56,7 @@ class HomeWorkController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function blog()
-    {
-        return view('HomeWork.blog');
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return View
      */
     public function create()
     {
@@ -63,11 +65,11 @@ class HomeWorkController extends Controller
 
     /**
      * @param ContactFormRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function store(ContactFormRequest $request)
     {
-        \Mail::send(
+        Mail::send(
             'HomeWork.email',
             [
                 'name' => $request->get('name'),
@@ -79,15 +81,14 @@ class HomeWorkController extends Controller
                 $message->to('svyat.php@gmail.com', 'Admin')->subject('Feedback');
             }
         );
-
-        return \Redirect::route('contact')->with(
+        return Redirect::route('contact')->with(
             'message',
             "Your message was successfully submit! Thanks for contacting us!"
         );
     }
 
     /**
-     * @return mixed
+     * @return View
      */
     public function uploadMake()
     {
@@ -97,9 +98,41 @@ class HomeWorkController extends Controller
     /**
      * @return mixed
      */
+    public function getBlog()
+    {
+        $posts = $this->dataBase->author()->orderBy('id', 'DESC')->paginate(5);
+        return View::make('HomeWork.addpost')->with('posts', $posts);
+    }
+
+    /**
+     * @param Requests\PostDatabase $request
+     * @return mixed
+     */
+    public function postAdd(Requests\PostDatabase $request)
+    {
+        $this->dataBase->create([
+            'title' => $request->get('title'),
+            'content' => $request->get('content'),
+            'author_id' => Auth::user()->id
+        ]);
+        return Redirect::route('blog');
+    }
+
+    /**
+     * @param $postId
+     * @return mixed
+     */
+    public function postDelete($postId)
+    {
+        $this->dataBase->delete($postId);
+        return Redirect::route('blog');
+    }
+
+    /**
+     * @return mixed
+     */
     public function upload()
     {
-
         // getting all of the post data
         $file = ['image' => Input::file('image')];
 

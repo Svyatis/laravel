@@ -1,53 +1,71 @@
-body {
+html {
     background-image: url("/images/2.jpg");
     background-size: cover;
     background-repeat: repeat;
+    height: 100%;
 }
+
+body {
+    position: relative;
+    margin-top: 45px;
+    min-height: 100%;
+}
+
+
 nav {
-    width: 600px;
+    width: 100%;
     text-align: center;
-    margin: 0 auto;
+    position: fixed;
+    margin-top: -60px;
 }
+
 nav ul {
     border-radius:20px;
     background:linear-gradient(rgba(204,0,0,0.5) 225%, rgba(154,0,0,0.1) 25%, rgba(154,0,0,0.1) 50%, rgba(154,0,0,0.1) 50%);
-    padding:5px;
-
+    padding:15px;
 }
+
 nav ul li {
     display:inline;
     padding:0 20px;
 }
+
 nav ul li a {
     color: #F89E11;
     font-size: medium;
     text-decoration: none;
     display: inline;
+    padding: 17px 17px;
 }
+
+.rightBar {
+    float: right;
+}
+
 p {
     color: #F89E11;
-    text-align: left;
-    padding-left: 20px;
+    text-align: center;
+    padding-left: 40px;
 }
+
 .textHolder {
     width: 700px;
     color: #F89E11;
 }
-#footer {
-    padding: 5px;
-    color: #F89E11;
-    font-size: 18px;
-    text-decoration: none;
-    display: inline;
-    position: absolute;
-    left: 40%;
-    bottom: 5;
-    width: 300px;
+.footer {
     background:linear-gradient(rgba(204,0,0,0.5) 225%, rgba(154,0,0,0.1) 25%, rgba(154,0,0,0.1) 50%, rgba(154,0,0,0.1) 50%);
     text-align: center;
     border-radius:20px;
+    height: 10px;
+    position: relative;
+    margin: 0;
+    margin-top: 40%;
+    right: 0;
+    bottom: -30px;
+    left: 0;
+    padding: 1rem;
 }
-#footer a {
+.footer a {
     text-decoration: none;
     color: #F89E11;
 }
@@ -55,6 +73,7 @@ p {
     width:100%;
     text-align: center;
     color:red;
+    padding-top: 45px;
 }
 
 .images {
@@ -70,7 +89,7 @@ p {
 form {
     margin:90 100px;
     padding: 10px 10px;
-    max-width:270px;
+    max-width:370px;
     background:linear-gradient(rgba(204,0,0,0.5) 225%, rgba(154,0,0,0.1) 25%, rgba(154,0,0,0.1) 50%, rgba(154,0,0,0.1) 50%);
     border-radius:50px;
 }
@@ -109,21 +128,23 @@ form {
     color: #F89E11;
     font-size: 15px;
 }
-textarea {
+.textareaClass {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     color: #F89E11;
     background-color: transparent;
     border-color: #F89E11;
+    width: auto;
 }
-textarea:hover {
+.textareaClass:hover {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     background-color: transparent;
     border-color: red;
 }
+
 input[type="text"] {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -138,9 +159,45 @@ input[type="text"]:hover {
     background-color: transparent;
     border-color: red;
 }
+
+.checkbox {
+    float: left;
+    padding-left: 32%;
+    margin-bottom: 10px;
+}
+
+.checkbox .tag {
+    color: #F89E11;
+    display: block;
+    float: right;
+    font-weight: bold;
+    width: 120px;
+}
+
+.checkbox .tag:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.checkbox .input-assumpte {
+    display: none;
+}
+.input-assumpte + label {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 1px solid #F89E11;
+    padding: 5px;
+    display: inline-block;
+    position: relative;
+}
+.input-assumpte:checked + label {
+    background-color: #F89E11;
+    color: red;
+}
+
 .btn {
     display: inline-block;
-    margin:10 20px;
+    margin: 10px 20px;
     padding: 6px 12px;
     cursor: pointer;
     background-color: transparent;
@@ -162,6 +219,17 @@ input[type="text"]:hover {
 :focus::-moz-placeholder          {color: transparent}
 :focus:-moz-placeholder           {color: transparent}
 :focus:-ms-input-placeholder      {color: transparent}
+
+div.hr {
+    height: 5px;
+    background:  red no-repeat scroll center;
+    border-radius: 5px;
+    width: 70%;
+    margin: auto;
+}
+div.hr hr {
+    display: none;
+}
 
 /* ------------ submitData --------------- */
 
@@ -196,4 +264,52 @@ input[type="file"] {
     text-align: left;
     padding-left: 10px;
     font-size: 20px;
+}
+
+#asideBar {
+    float: right;
+    background:linear-gradient(rgba(204,0,0,0.8) 225%, rgba(204,0,0,0.7) 25%, rgba(154,0,0,0.7) 50%, rgba(154,0,0,0.7) 50%);
+    margin-top: 30px;
+    padding-left: 50px;
+    padding-bottom: 30px;
+    padding-right: 5%;
+    border-radius: 15px;
+    width: 50%;
+    max-width: 50%;
+}
+
+#contentSide {
+    float: center;
+    max-width: 100%;
+}
+#blogGreatigs {
+    margin-left: 0;
+    float: left;
+    margin-top: -100px;
+    max-width: 100%;
+}
+
+#nameBlog {
+    color: darkblue;
+    text-align: center;
+    max-width: 100%;
+}
+
+.postedByText {
+    color: floralwhite;
+}
+.pagination span {
+    font-size: 20px;
+    padding: 5px;
+}
+.pagination span a {
+    padding: 5px;
+    text-decoration: none;
+    color: floralwhite;
+}
+
+.postFoot {
+    font-size: small;
+    color: floralwhite;
+    text-align: center;
 }
