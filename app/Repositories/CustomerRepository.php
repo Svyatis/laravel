@@ -3,25 +3,25 @@
  * Created by PhpStorm.
  * User: svyatis
  * Date: 17.07.16
- * Time: 19:28
+ * Time: 19:36
  */
 
-namespace App\Repositories\PostRepository;
+namespace App\Repositories;
 
-use App\Entities\Post;
+use App\Entities\Customer;
 
-class PostRepository
+class CustomerRepository
 {
     /**
-     * @var Post
+     * @var Customer
      */
     private $model;
 
     /**
-     * PostRepository constructor.
-     * @param Post $model
+     * CustomerRepository constructor.
+     * @param Customer $model
      */
-    public function __construct(Post $model)
+    public function __construct(Customer $model)
     {
         $this->model = $model;
     }
@@ -45,19 +45,16 @@ class PostRepository
 
     /**
      * @param array $attributes
-     * @return static
+     * @return bool
      */
     public function create(array $attributes)
     {
-        return $this->model->create($attributes);
+        $this->model->create($attributes);
+        return true;
     }
 
-    /**
-     * @param $id
-     * @param array $atributes
-     * @return mixed
-     */
-    public function update($id, array $atributes)
+
+    public function update($id, array $attributes)
     {
         $user = $this->model->findOrFail($id);
         $user->update($attributes);
@@ -73,13 +70,5 @@ class PostRepository
     {
         $this->model->find($id)->delete();
         return true;
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Builder|static
-     */
-    public function author()
-    {
-        return $this->model::with('author')->orderBy('id', 'DESC')->paginate(5);
     }
 }

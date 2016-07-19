@@ -4,7 +4,7 @@
 
     <section class="container">
         <h2 id="blogGreatigs">Welcome to Blog, <i id="nameBlog"> {{Auth::user()->name}} !</i></h2>
-        {{ Form::open(['route' => 'add_new_post', 'class' => 'form']) }}
+        {{ Form::open(['route' => 'add_new_post']) }}
         <div>
             <ul>
                 @foreach($errors->all() as $error)
@@ -37,23 +37,23 @@
               ['class'=>'btn']) }}
         </div>
         {{ Form::close() }}
-@endsection
-
-<aside>
+    </section>
+@section('aside')
     <section id="asideBar">
-    <section id="contentSide">
         @foreach($posts as $post)
             <article id="postArt">
-                <h3 id="nameBlog">{{$post->title}}</h3>
+                <h3 id="nameBloger">{{$post->title}}</h3>
                 <p>{{$post->content}}</p>
                 <div class="postFoot">Posted by {{$post->author->name}} at {{$post->created_at}}
                     @if(Auth::user()->id == $post->author_id || Auth::user()->admin) ---
-                    <a class="deletePost" href="{!! URL::route('deletePost', ['postId' => $post->id]) !!}">Delete</a></div>
-                    @endif
+                    <a class="deletePost" href="{{ URL::route('deletePost', ['postId' => $post->id]) }}">Delete</a></div>
+                @endif
                 <hr>
             </article>
         @endforeach
+        {{$posts->links()}}
     </section>
-    {{$posts->links()}}
-    </section>
-</aside>
+@endsection
+@endsection
+
+

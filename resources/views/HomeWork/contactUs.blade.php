@@ -2,8 +2,6 @@
 
 
 @section('content')
-
-
     <ul>
         @foreach($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -11,14 +9,13 @@
     </ul>
 
     {{ Form::open(['route' => 'contact_store', 'class' => 'form']) }}
-
     <div class="form-group">
         {{ Form::label('Your Name') }}
         <br>
         {{ Form::text('name', null,
-            ['required',
-                  'class'=>'form-control',
-                  'placeholder'=>'Your name']) }}
+           ['required',
+            'class'=>'form-control',
+            'placeholder'=>'Your name']) }}
     </div>
     <br>
     <div class="form-group">

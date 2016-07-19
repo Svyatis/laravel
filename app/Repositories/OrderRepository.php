@@ -3,25 +3,25 @@
  * Created by PhpStorm.
  * User: svyatis
  * Date: 17.07.16
- * Time: 19:36
+ * Time: 19:28
  */
 
-namespace App\Repositories\CustomerRepository;
+namespace App\Repositories;
 
-use App\Entities\Customer;
+use App\Entities\Order;
 
-class CustomerRepository
+class OrderRepository
 {
     /**
-     * @var Customer
+     * @var Order
      */
     private $model;
 
     /**
-     * CustomerRepository constructor.
-     * @param Customer $model
+     * OrderRepository constructor.
+     * @param Order $model
      */
-    public function __construct(Customer $model)
+    public function __construct(Order $model)
     {
         $this->model = $model;
     }

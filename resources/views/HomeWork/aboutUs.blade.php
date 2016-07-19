@@ -3,7 +3,6 @@
 
 @section('content')
 
-    <div class="textHolder">
         <p>About Us</p>
     Our Cosmic Neighborhood
 From our small world we have gazed upon the cosmic ocean for thousands of years.
@@ -18,13 +17,23 @@ Since the invention of the telescope, three more planets have been discovered in
         In addition, there are thousands of small bodies such as asteroids and comets. Most of the
         asteroids orbit in a region between the orbits of Mars and Jupiter, while the home of comets
         lies far beyond the orbit of Pluto, in the Oort Cloud.
-    </div>
+
+@endsection
+
+@section('aside')
+
     <div class="imageDiv">
         <input class="images" type="image" src="{{ asset("images/3.jpg") }}">
         <input class="images" type="image" src="{{ asset("images/4.jpg") }}">
-    <br>
         <input class="images" type="image" src="{{ asset("images/5.jpg") }}">
+        <br>
         <input class="images" type="image" src="{{ asset("images/6.jpg") }}">
+        <input class="images" type="image" src="{{ asset("images/7.jpg") }}">
+        <input class="images" type="image" src="{{ asset("images/8.jpg") }}">
+        <br>
+        <input class="images" type="image" src="{{ asset("images/1.jpg") }}">
+        <input class="images" type="image" src="{{ asset("images/2.jpg") }}">
+        <input class="images" type="image" src="{{ asset("images/9.jpg") }}">
     </div>
 
 @endsection

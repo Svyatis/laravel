@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\CustomerRepository\CustomerRepository;
-use App\Repositories\DataBaseInterface;
-use App\Repositories\PostRepository\PostRepository;
-use App\Repositories\UserRepository\UserRepository;
-use Collective\Html\HtmlFacade;
+use App\Repositories\PostRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Validator;

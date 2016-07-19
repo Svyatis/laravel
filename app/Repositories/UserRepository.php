@@ -6,7 +6,7 @@
  * Time: 15:16
  */
 
-namespace App\Repositories\UserRepository;
+namespace App\Repositories;
 
 use App\Entities\User;
 

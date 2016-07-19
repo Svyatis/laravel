@@ -6,22 +6,23 @@
  * Time: 19:28
  */
 
-namespace App\Repositories\OrderRepository;
+namespace App\Repositories;
 
-use App\Entities\Order;
+use App\Entities\Post;
 
-class OrderRepository
+class PostRepository
 {
+
     /**
-     * @var Order
+     * @var Post
      */
     private $model;
 
     /**
-     * OrderRepository constructor.
-     * @param Order $model
+     * PostRepository constructor.
+     * @param Post $model
      */
-    public function __construct(Order $model)
+    public function __construct(Post $model)
     {
         $this->model = $model;
     }
@@ -45,19 +46,20 @@ class OrderRepository
 
     /**
      * @param array $attributes
-     * @return static
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function create(array $attributes)
     {
-        return $this->model->create($attributes);
+        $this->model->create($attributes);
+        return back();
     }
 
     /**
      * @param $id
-     * @param array $atributes
+     * @param array $attributes
      * @return mixed
      */
-    public function update($id, array $atributes)
+    public function update($id, array $attributes)
     {
         $user = $this->model->findOrFail($id);
         $user->update($attributes);
@@ -73,5 +75,13 @@ class OrderRepository
     {
         $this->model->find($id)->delete();
         return true;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function author()
+    {
+        return $this->model->with('author')->orderBy('id', 'DESC')->paginate(5);
     }
 }
