@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="container">
-        <h2 id="blogGreatigs">Welcome to Blog, <i id="nameBlog"> {{Auth::user()->name}} !</i></h2>
+        <h2 id="blogGreatigs">{{ trans('main.Welcome to blog') }}, <i id="nameBlog"> {{Auth::user()->name}} !</i></h2>
         {{ Form::open(['route' => 'add_new_post']) }}
         <div>
             <ul>

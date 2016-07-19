@@ -32,11 +32,12 @@ class HomeWorkController extends Controller
     }
 
     /**
-     * @return View
+     * @return mixed
      */
-    public function index()
+    public function setLocale()
     {
-        return view('home');
+        Session::set('locale', Input::get('locale'));
+        return Redirect::back();
     }
 
     /**

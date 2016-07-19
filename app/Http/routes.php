@@ -15,6 +15,10 @@
 Route::group(['middlewareGroups' => ['web']], function () {
 
     Route::auth();
+    Route::get('/language', [
+        'as' => 'language-chooser',
+        'uses' => 'HomeWorkController@setLocale'
+    ]);
     Route::get('/', 'HomeWorkController@mainpage');
     Route::get('aboutUs', 'HomeWorkController@aboutUs');
     Route::get('upload', 'HomeWorkController@uploadMake')->middleware('isAdmin');
