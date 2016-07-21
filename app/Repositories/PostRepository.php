@@ -9,6 +9,7 @@
 namespace App\Repositories;
 
 use App\Entities\Post;
+use Cache;
 
 class PostRepository
 {
@@ -32,7 +33,7 @@ class PostRepository
      */
     public function getAll()
     {
-        return $this->model->all();
+            return $this->model->all();
     }
 
     /**
@@ -82,6 +83,7 @@ class PostRepository
      */
     public function author()
     {
-        return $this->model->with('author')->orderBy('id', 'DESC')->paginate(5);
+            return $this->model->with('author')->orderBy('id', 'DESC')->paginate(5);
+
     }
 }

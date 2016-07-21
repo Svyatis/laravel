@@ -31,9 +31,6 @@ nav span a {
     color: #FF0000;
 }
 
-#central {
-}
-
 .rightBar {
     float: right;
 }
@@ -49,7 +46,7 @@ p {
     position: relative;
     z-index: 10;
     height: 1em;
-    margin-top: -1em;
+    margin-top: 50%;
     background:rgba(123, 0, 2, 0.78);
     text-align: center;
     padding: 20px;
@@ -60,11 +57,17 @@ p {
 }
 
 #content {
+    width: 30%;
+    float:left;
     text-align: center;
     color:red;
     min-height: 100%;
 }
 
+#leftPart {
+    width: 70%;
+    float:right;
+}
 
 .images {
     height: 20%;
@@ -78,7 +81,6 @@ p {
 /* ---------- upload form -------------- */
 .form {
     position: relative;
-    margin:10% 10%;
     padding: 10px 10px;
     max-width:370px;
     background:rgba(123, 0, 2, 0.78);
@@ -107,7 +109,7 @@ p {
     padding: 6px 12px;
     cursor: pointer;
     color:#F89E11;
-    width:200px;
+    width:60%;
     border-radius:20px;
 }
 .custom-submit:hover {
@@ -118,7 +120,9 @@ p {
 .form-group {
     color: #F89E11;
     font-size: 15px;
+    padding: 1%;
 }
+
 .textareaClass {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -126,7 +130,9 @@ p {
     color: #F89E11;
     background-color: transparent;
     border-color: #F89E11;
-    width: auto;
+    resize: both;
+    width: 60%;
+    height: 10%;
 }
 .textareaClass:hover {
     -webkit-border-radius: 5px;
@@ -136,12 +142,12 @@ p {
     border-color: red;
 }
 
-input[type="text"] {
+input[type="text"], input[type="email"], input[type="password"] {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    width: 260px;
-    height: 30px;
+    width: 60%;
+    height: 4%;
     color: #F89E11;
     background-color: transparent;
     border-color: #F89E11;
@@ -151,18 +157,11 @@ input[type="text"]:hover {
     border-color: red;
 }
 
-.checkbox {
-    float: left;
-    padding-left: 32%;
-    margin-bottom: 10px;
-}
-
 .checkbox .tag {
     color: #F89E11;
-    display: block;
-    float: right;
     font-weight: bold;
-    width: 120px;
+    width: 70%;
+    padding: 1%;
 }
 
 .checkbox .tag:hover {
@@ -177,9 +176,6 @@ input[type="text"]:hover {
     -webkit-appearance: none;
     background-color: transparent;
     border: 1px solid #F89E11;
-    padding: 5px;
-    display: inline-block;
-    position: relative;
 }
 .input-assumpte:checked + label {
     background-color: #F89E11;
@@ -236,7 +232,7 @@ input[type="file"] {
 .custom-file-upload {
     border: 1px solid #F89E11;
     display: inline-block;
-    margin:10 20px;
+    margin: 10px 20px;
     padding: 6px 12px;
     cursor: pointer;
     color: #F89E11;
@@ -253,7 +249,8 @@ input[type="file"] {
 .alert-info {
     color: #F89E11;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 20%;
+    padding-top: 25%;
     font-size: 20px;
 }
 #wrapper {
@@ -292,4 +289,20 @@ input[type="file"] {
     color: #FF0000;
     text-align: center;
     font-size: 20px;
+}
+
+.productsTable {
+    width: 100%;
+    height: 90%;
+    color: white;
+    text-align: center;
+}
+.productName {
+    color: white;
+    font-size: xx-large;
+}
+
+.productDescription {
+    color: #F89E11;
+    font-size: x-large;
 }

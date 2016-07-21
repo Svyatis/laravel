@@ -13,27 +13,21 @@
             </ul>
         </div>
         <div class="form-group">
-            {{ Form::label('Title') }}
+            {{ Form::label(trans('main.Title')) }}
             <br>
-            {{ Form::text('title', null,
-                ['required',
-                      'class'=>'form-control',
-                      'placeholder'=>'enter title']) }}
-        </div>
-        <br>
-        <div class="textareaClass">
-            {{ Form::label('Your Message') }}
-            <br>
-            {{ Form::textarea('content', null,
-                ['required',
-                      'class'=>'textareaClass',
-                      'cols'=>'30',
-                      'rows'=>'5',
-                      'placeholder'=>'Your message']) }}
+            {{ Form::text('title', null, ['placeholder'=>trans('main.EnterTitle')]) }}
         </div>
         <br>
         <div class="form-group">
-            {{ Form::submit('Send',
+            {{ Form::label(trans('main.Message')) }}
+            <br>
+            {{ Form::textarea('content', null,
+                ['class'=>'textareaClass',
+                 'placeholder'=>trans('main.YourMessage')]) }}
+        </div>
+        <br>
+        <div class="form-group">
+            {{ Form::submit(trans('main.Send'),
               ['class'=>'btn']) }}
         </div>
         {{ Form::close() }}

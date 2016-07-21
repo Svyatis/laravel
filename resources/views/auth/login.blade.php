@@ -9,13 +9,12 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
-                        <i>Login:</i>
                         <br><div class="hr"><hr /></div><br>
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="textareaClass">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="textareaClass" name="email" value="{{ old('email') }}">
+                                <input id="email" type="email" name="email" value="{{ old('email') }}">
                                 <br>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -26,10 +25,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="textareaClass">Password</label>
+                            <label for="password">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="textareaClass" name="password">
+                                <input id="password" type="password" name="password">
                                 <br>
                                 @if ($errors->has('password'))
                                     <span class="textareaClass">

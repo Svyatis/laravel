@@ -37,16 +37,16 @@
 @endif
 
 <div id="wrapper">
-<div id="content" style="width: 30%; float:left">
+<div id="content">
     @yield('content')
 </div>
 
-<div id="leftPart" style="width: 70%; float:right">
+<div id="leftPart">
     @yield('aside')
 </div>
 
 <div class="footer">
-    <a href="{{ url('/') }}">Copyright © 2016 svyatis.com</a>
+    <a href="{{ url('/') }}">{{  trans('main.Copyright') }}</a>
 </div>
 
 </div>

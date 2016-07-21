@@ -1,5 +1,4 @@
 <?php
-
 /*
     |--------------------------------------------------------------------------
     | Application Routes
@@ -13,17 +12,14 @@
 
 // Apply Middleware
 Route::group(['middlewareGroups' => ['web']], function () {
-
     Route::auth();
-    Route::get('/language', [
-        'as' => 'language-chooser',
-        'uses' => 'HomeWorkController@setLocale'
-    ]);
     Route::get('/', 'HomeWorkController@mainpage');
     Route::get('aboutUs', 'HomeWorkController@aboutUs');
-    Route::get('upload', 'HomeWorkController@uploadMake')->middleware('isAdmin');
+    Route::get('upload', ['as' => 'upload', 'uses' => 'HomeWorkController@getAllProducts']);
+    Route::get('products/{id}', ['as' => 'products', 'uses' => 'HomeWorkController@getProductDetail']);
     Route::get('blog', ['as' => 'blog', 'uses' => 'HomeWorkController@getBlog']);
     Route::get('contactUs', ['as' => 'contact', 'uses' => 'HomeWorkController@create']);
+    Route::get('language', ['as'    => 'language-chooser', 'uses'  => 'HomeWorkController@setLocale']);
     Route::get('deletePost/{postId}', ['as' => 'deletePost', 'uses' => 'HomeWorkController@postDelete']);
     // Forms
     Route::post('apply/upload', 'HomeWorkController@upload');

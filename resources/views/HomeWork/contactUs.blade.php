@@ -2,46 +2,55 @@
 
 
 @section('content')
-    <ul>
-        @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-
+    <?php
+    $displayForm = true;
+    if (Session::has('message')){
+        $displayForm = false;
+    }
+    if($displayForm){
+    ?>
     {{ Form::open(['route' => 'contact_store', 'class' => 'form']) }}
     <div class="form-group">
-        {{ Form::label('Your Name') }}
+        {{ Form::label(trans('main.YourName')) }}
         <br>
         {{ Form::text('name', null,
            ['required',
             'class'=>'form-control',
-            'placeholder'=>'Your name']) }}
+            'placeholder'=>trans('main.YourName')]) }}
     </div>
     <br>
     <div class="form-group">
-        {{ Form::label('Your E-mail Address') }}
+        {{ Form::label(trans('main.YourEmail')) }}
         <br>
         {{ Form::text('email', null,
             ['required',
                   'class'=>'form-control',
-                  'placeholder'=>'Your e-mail address']) }}
+                  'placeholder'=>trans('main.YourEmail')]) }}
     </div>
     <br>
-    <div class="textareaClass">
-        {{ Form::label('Your Message') }}
+    <div class="form-group">
+        {{ Form::label(trans('main.YourMessage')) }}
         <br>
         {{ Form::textarea('message', null,
             ['required',
                   'class'=>'textareaClass',
                   'cols'=>'30',
                   'rows'=>'5',
-                  'placeholder'=>'Your message']) }}
+                  'placeholder'=>trans('main.YourMessage')]) }}
     </div>
+    <ul>
+        @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
     <br>
     <div class="form-group">
-        {{ Form::submit('Contact Us!',
+        {{ Form::submit(trans('main.ContactUs'),
           ['class'=>'btn']) }}
     </div>
     {{ Form::close() }}
+    <?php
+    }
+    ?>
 
 @endsection

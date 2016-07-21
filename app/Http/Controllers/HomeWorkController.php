@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostDatabase;
+use App\Http\Requests\UploadRequest;
 use App\Repositories\PostRepository;
+use App\Repositories\ProductRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Validator;
-use Illuminate\Support\Facades\Redirect;
+use Redirect;
 use Session;
-use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\ContactFormRequest;
-use Illuminate\Support\Facades\View;
+use View;
 
 class HomeWorkController extends Controller
 {
@@ -20,15 +21,17 @@ class HomeWorkController extends Controller
      * @var PostRepository
      */
     private $postRepo;
+    private $productRepo;
 
     /**
      * HomeWorkController constructor.
      * @param PostRepository $postRepo
      */
-    public function __construct(PostRepository $postRepo)
+    public function __construct(PostRepository $postRepo, ProductRepository $productRepo)
     {
         $this->middleware('auth');
         $this->postRepo = $postRepo;
+        $this->productRepo = $productRepo;
     }
 
     /**
@@ -65,6 +68,21 @@ class HomeWorkController extends Controller
     }
 
     /**
+     * @return mixed
+     */
+    public function getAllProducts()
+    {
+        $products = $this->productRepo->getAll();
+        return view('HomeWork.upload')->with('products', $products);
+    }
+
+    public function getProductDetail($id)
+    {
+        $productDetail = $this->productRepo->getDetails($id);
+        return view('HomeWork.upload')->with('productDetail', $productDetail);
+    }
+
+    /**
      * @param ContactFormRequest $request
      * @return mixed
      */
@@ -82,10 +100,7 @@ class HomeWorkController extends Controller
                 $message->to('svyat.php@gmail.com', 'Admin')->subject('Feedback');
             }
         );
-        return Redirect::route('contact')->with(
-            'message',
-            "Your message was successfully submit! Thanks for contacting us!"
-        );
+        return Redirect::route('contact')->with('message', "Thanks for contacting us!");
     }
 
     /**
@@ -102,14 +117,14 @@ class HomeWorkController extends Controller
     public function getBlog()
     {
         $posts = $this->postRepo->author();
-        return View::make('HomeWork.addpost')->with('posts', $posts);
+        return view('HomeWork.addpost')->with('posts', $posts);
     }
 
     /**
-     * @param Requests\PostDatabase $request
-     * @return mixed
+     * @param PostDatabase $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function postAdd(Requests\PostDatabase $request)
+    public function postAdd(PostDatabase $request)
     {
         $this->postRepo->create([
             'title' => $request->get('title'),
@@ -130,37 +145,23 @@ class HomeWorkController extends Controller
     }
 
     /**
-     * @return mixed
+     * @param UploadRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function upload()
+    public function upload(UploadRequest $request)
     {
-        // getting all of the post data
-        $file = ['image' => Input::file('image')];
+            $files = $request->file('image');
+            $destinationPath = env('UPLOAD_PATH');
+            $extension = $files->getClientOriginalExtension();
+            $fileName = Auth::user()->name . rand(11111, 99999).'.'.$extension;
+            $files->move($destinationPath, $fileName);
+            $image = $destinationPath . "/" . $fileName;
+            Session::flash('success', "Your file is : $image");
+            $this->productRepo->create([
+                'name' => $request->get('name'),
+                'description' => $request->get('description'),
+                'image' => $image]);
 
-        // setting up rules
-        $rules = ['image' => 'required',]; //mimes:jpeg,bmp,png and for max size max:10000
-
-        // doing the validation, passing post data, rules and the messages
-        $validator = Validator::make($file, $rules);
-
-        if ($validator->fails()) {
-            // send back to the page with the input data and errors
-            return Redirect::to('upload')->withInput()->withErrors($validator);
-        } else {
-            // checking file is valid.
-            if (Input::file('image')->isValid()) {
-                $destinationPath = env('UPLOAD_PATH'); // upload path
-                $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
-                $fileName = rand(11111, 99999).'.'.$extension; // renaming image
-                Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
-                // sending back with message
-                Session::flash('success', "Your file is : $destinationPath/$fileName");
-                return Redirect::to('upload');
-            } else {
-                // sending back with error message.
-                Session::flash('error', 'uploaded file is not valid');
-                return Redirect::to('upload');
-            }
-        }
+            return Redirect::route('upload');
     }
 }
