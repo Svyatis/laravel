@@ -44,4 +44,5 @@ return [
     'Copyright'                 => 'Copyright © 2016 svyatis.com',
     'EnterProductName'          => 'Product name',
     'EnterProductDescription'   => 'Product descritpion',
+    'Search'                    => 'Search',
 ];

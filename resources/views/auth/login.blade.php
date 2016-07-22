@@ -63,3 +63,9 @@
     </div>
 </div>
 @endsection
+
+@section('aside')
+    <div class="imageDiv">
+        <input id="loginImage" type="image" src="{{ asset("images/20.png") }}">
+    </div>
+@endsection

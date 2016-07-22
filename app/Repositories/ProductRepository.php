@@ -44,4 +44,5 @@ class ProductRepository
         $this->model->create($attributes);
         return back();
     }
+
 }

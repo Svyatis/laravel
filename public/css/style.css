@@ -209,10 +209,11 @@ input[type="text"]:hover {
 
 div.hr {
     height: 5px;
-    background:  red no-repeat scroll center;
+    background:  #007AC2 no-repeat scroll center;
     border-radius: 5px;
     width: 70%;
     margin: auto;
+    color: #007AC2;
 }
 div.hr hr {
     display: none;
@@ -262,7 +263,7 @@ input[type="file"] {
 }
 
 #nameBlog {
-    color: blue;
+    color: #007AC2;
     text-align: center;
     font-size: 30px;
 }
@@ -305,4 +306,8 @@ input[type="file"] {
 .productDescription {
     color: #F89E11;
     font-size: x-large;
+}
+
+#loginImage {
+    margin-top: -11%;
 }

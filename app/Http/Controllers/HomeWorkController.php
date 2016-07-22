@@ -76,6 +76,10 @@ class HomeWorkController extends Controller
         return view('HomeWork.upload')->with('products', $products);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getProductDetail($id)
     {
         $productDetail = $this->productRepo->getDetails($id);

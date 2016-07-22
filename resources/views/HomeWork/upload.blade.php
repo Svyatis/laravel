@@ -27,6 +27,26 @@
         @endif
     {{ Form::submit(trans('main.Submit'), ['class'=>'btn']) }}
     {{ Form::close() }}
+    <hr>
+    {{ Form::open() }}
+    <h1>Search by Manufactors:</h1>
+    <br>
+    <div class="checkbox">
+        <input type="checkbox" class="input-assumpte" name="manufactors[]" id="1">
+        <label for="1" class="tag">Tokyo Inc.</label>
+    </div>
+    <br>
+    <div class="checkbox">
+        <input type="checkbox" class="input-assumpte" name="manufactors[]" id="2">
+        <label for="2" class="tag">New York Inc.</label>
+    </div>
+    <br>
+    <div class="checkbox">
+        <input type="checkbox" class="input-assumpte" name="manufactors[]" id="3">
+        <label for="3" class="tag">Paris Inc.</label>
+    </div>
+    {{ Form::submit(trans('main.Search'), ['class'=>'btn']) }}
+    {{ Form::close() }}
 @endsection
 @section('aside')
     @if(isset($products))
@@ -56,5 +76,9 @@
         <br>
         <h1 class="productName">{{  $productDetail->name }}</h1>
         <h2 class="productDescription">{{  $productDetail->description }}</h2>
+        <h1 style="color: red">Manufactors:</h1>
+        @foreach($productDetail->manufactors as $manufactor)
+        <h3 class="productDescription">{{  $manufactor->name }}</h3>
+        @endforeach
     @endif
 @endsection
