@@ -66,7 +66,7 @@
 @endif
     <h1>Search options:</h1>
     -----------------------
-    {{ Form::open(['url'=>'search']) }}
+    {{ Form::open(['url'=>'search', 'method' => "GET"]) }}
     <br>
     <h1>Search by Model names:</h1>
     <br>

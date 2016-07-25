@@ -17,7 +17,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::get('/', 'HomeWorkController@mainpage');
     Route::get('aboutUs', 'HomeWorkController@aboutUs');
     Route::get('catalog', 'HomeWorkController@getAllProducts');
-    Route::post('search', 'HomeWorkController@searchBy');
+    Route::get('search', 'HomeWorkController@searchBy');
     Route::get('products/{id}', ['as' => 'products', 'uses' => 'HomeWorkController@getProductDetail']);
     Route::get('blog', ['as' => 'blog', 'uses' => 'HomeWorkController@getBlog']);
     Route::get('deletePost/{postId}', ['as' => 'deletePost', 'uses' => 'HomeWorkController@postDelete']);
@@ -29,4 +29,3 @@ Route::group(['middlewareGroups' => ['web']], function () {
     Route::post('contactUs', ['as' => 'contact_store', 'uses' => 'HomeWorkController@store']);
 
 });
-git
