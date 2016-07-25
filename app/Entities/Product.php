@@ -19,9 +19,9 @@ class Product extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function color()
+    public function colors()
     {
-        return $this->hasMany('\App\Entities\Color', 'product_id');
+        return $this->belongsToMany('\App\Entities\Color');
     }
 
     public function manufactors()

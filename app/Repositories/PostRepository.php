@@ -10,6 +10,8 @@ namespace App\Repositories;
 
 use App\Entities\Post;
 use Cache;
+use Request;
+use Auth;
 
 class PostRepository
 {
@@ -29,29 +31,16 @@ class PostRepository
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
-    public function getAll()
-    {
-            return $this->model->all();
-    }
-
-    /**
-     * @param $id
-     * @return mixed
-     */
-    public function getById($id)
-    {
-        return $this->model->find($id);
-    }
-
-    /**
-     * @param array $attributes
+     * @param $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function create(array $attributes)
+    public function create($request)
     {
-        $this->model->create($attributes);
+        $this->model->create([
+            'title' => $request->get('title'),
+            'content' => $request->get('content'),
+            'author_id' => Auth::user()->id
+        ]);
         return back();
     }
 
@@ -83,7 +72,10 @@ class PostRepository
      */
     public function author()
     {
+        $page = Request::input('page', '1');
+        $products = Cache::remember('productsList' . $page, 1, function() {
             return $this->model->with('author')->orderBy('id', 'DESC')->paginate(5);
-
+        });
+        return $products;
     }
 }

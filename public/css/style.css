@@ -1,7 +1,5 @@
 html {
-    background-image: url("/images/11.jpg");
-    background-size: cover;
-    background-repeat: repeat;
+    background: url('../images/11.jpg'), repeat;
 }
 
 nav {
@@ -167,19 +165,21 @@ input[type="text"]:hover {
 .checkbox .tag:hover {
     color: red;
     cursor: pointer;
+    border-color: red;
 }
 
-.checkbox .input-assumpte {
+.checkbox .input-assumption {
     display: none;
 }
-.input-assumpte + label {
+.input-assumption + label {
     -webkit-appearance: none;
     background-color: transparent;
     border: 1px solid #F89E11;
 }
-.input-assumpte:checked + label {
+.input-assumption:checked + label {
     background-color: #F89E11;
     color: red;
+    border-color: red;
 }
 
 .btn {

@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
-                                    <input type="checkbox" class="input-assumpte" id="input-confidencial">
+                                    <input type="checkbox" class="input-assumption" id="input-confidencial">
                                     <label for="input-confidencial" class="tag">Remember me</label>
                                 </div>
                             </div>

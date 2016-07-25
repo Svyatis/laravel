@@ -14,7 +14,7 @@
 
     <span id="central">
         <a href="{{ url('aboutUs') }}">{{ trans('main.ABOUT US') }}</a>
-        <a href="{{ url('upload') }}">{{ trans('main.CATALOG') }}</a>
+        <a href="{{ url('catalog') }}">{{ trans('main.CATALOG') }}</a>
         <a href="{{ url('blog') }}">{{ trans('main.BLOG') }}</a>
         <a href="{{ url('contactUs') }}">{{ trans('main.CONTACT US') }}</a>
     </span>

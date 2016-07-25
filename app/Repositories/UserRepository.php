@@ -46,7 +46,7 @@ class UserRepository
 
     /**
      * @param array $attributes
-     * @return static
+     * @return mixed
      */
     public function create(array $attributes)
     {
@@ -55,10 +55,11 @@ class UserRepository
 
     /**
      * @param $id
-     * @param array $atributes
+     * @param array $attributes
      * @return mixed
+     * @internal param array $attributes
      */
-    public function update($id, array $atributes)
+    public function update($id, array $attributes)
     {
         $user = $this->model->findOrFail($id);
         $user->update($attributes);

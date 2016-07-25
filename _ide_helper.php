@@ -11286,7 +11286,11 @@ namespace {
         public static function getNames(){
             return \Illuminate\View\Factory::getNames();
         }
-        
+
+        public function with($string, $posts)
+        {
+        }
+
     }
 
 

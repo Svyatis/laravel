@@ -41,7 +41,7 @@
                 <div class="postFoot">Posted by {{$post->author->name}} at {{$post->created_at}}
                     @if(Auth::user()->id == $post->author_id || Auth::user()->admin) ---
                     <a class="deletePost" href="{{ URL::route('deletePost', ['postId' => $post->id]) }}">Delete</a></div>
-                @endif
+                    @endif
                 <hr>
             </article>
         @endforeach
