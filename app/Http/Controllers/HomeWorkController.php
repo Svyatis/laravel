@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactFormRequest;
 use App\Services\MailService;
+use App\Http\Requests\Request;
+use Auth;
 use View;
 use Cache;
 use Redirect;
@@ -140,11 +143,12 @@ class HomeWorkController extends Controller
 
     /**
      * @param MailService $mail
+     * @param ContactFormRequest $contactFormRequest
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(MailService $mail)
+    public function store(MailService $mail, ContactFormRequest $contactFormRequest)
     {
-        $mail->feedbackMail();
+        $mail->feedbackMail($contactFormRequest);
         return Redirect::route('contact')->with('message', "Thanks for contacting us!");
     }
 }

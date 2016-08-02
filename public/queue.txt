@@ -1,0 +1,63 @@
+[2016-07-26 15:32:06] Processed: mailer@handleQueuedMessage
+[2016-07-26 16:05:09] Processed: mailer@handleQueuedMessage
+[2016-07-27 11:10:07] Processed: mailer@handleQueuedMessage
+
+                                                            
+  [Symfony\Component\Debug\Exception\FatalThrowableError]   
+  Parse error: syntax error, unexpected ':', expecting ']'  
+                                                            
+
+
+                                                            
+  [Symfony\Component\Debug\Exception\FatalThrowableError]   
+  Parse error: syntax error, unexpected ':', expecting ']'  
+                                                            
+
+
+                                                            
+  [Symfony\Component\Debug\Exception\FatalThrowableError]   
+  Parse error: syntax error, unexpected ':', expecting ']'  
+                                                            
+
+
+                                                            
+  [Symfony\Component\Debug\Exception\FatalThrowableError]   
+  Parse error: syntax error, unexpected ':', expecting ']'  
+                                                            
+
+
+                                                            
+  [Symfony\Component\Debug\Exception\FatalThrowableError]   
+  Parse error: syntax error, unexpected ')', expecting ']'  
+                                                            
+
+
+                              
+  [ErrorException]            
+  Array to string conversion  
+                              
+
+
+                                                               
+  [UnexpectedValueException]                                   
+  Invalid route action: [App\Http\Controllers\RestController]  
+                                                               
+
+
+                                                                                                                                        
+  [ErrorException]                                                                                                                      
+  include(/var/www/html/project/vendor/composer/../symfony/process/ProcessUtils.php): failed to open stream: No such file or directory  
+                                                                                                                                        
+
+
+                                                           
+  [Symfony\Component\Debug\Exception\FatalThrowableError]  
+  Parse error: syntax error, unexpected ','                
+                                                           
+
+[2016-08-02 01:40:04] Processed: mailer@handleQueuedMessage
+[2016-08-02 11:55:08] Processed: mailer@handleQueuedMessage
+[2016-08-02 12:10:06] Processed: mailer@handleQueuedMessage
+[2016-08-02 12:15:07] Processed: mailer@handleQueuedMessage
+[2016-08-02 12:20:04] Processed: mailer@handleQueuedMessage
+[2016-08-02 12:25:06] Processed: mailer@handleQueuedMessage

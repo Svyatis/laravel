@@ -9,38 +9,39 @@
 namespace App\Services;
 
 use Mail;
-use App\Http\Requests\ContactFormRequest;
 
 class MailService
 {
     /**
-     * @var ContactFormRequest
+     * @param $contactFormRequest
      */
-    private $request;
-
-    /**
-     * MailService constructor.
-     * @param ContactFormRequest $request
-     */
-    public function __construct(ContactFormRequest $request)
-    {
-        $this->request = $request;
-    }
-
-    /**
-     * Feedback form
-     */
-    public function feedbackMail()
+    public function feedbackMail($contactFormRequest)
     {
         $view       = 'emails.feedback';
-        $data       = [ 'name'          => $this->request->get('name'),
-                        'email'         => $this->request->get('email'),
-                        'user_message'  => $this->request->get('message')
+        $data       = [ 'name'          => $contactFormRequest->get('name'),
+                        'email'         => $contactFormRequest->get('email'),
+                        'user_message'  => $contactFormRequest->get('message')
                         ];
         $to         = env('MAIL_USERNAME');
         $from       = 'admin@svyatis.com';
         $subject    = 'Feedback from svyatis.com';
-        Mail::send($view, $data, function($message) use ($to, $from, $subject) {
+        Mail::queue($view, $data, function($message) use ($to, $from, $subject) {
+            $message->to($to)
+                    ->from($from)
+                    ->subject($subject);
+        });
+    }
+
+    /**
+     * @param $data
+     */
+    public function feedbackJSONMail($data)
+    {
+        $view       = 'emails.feedback';
+        $to         = env('MAIL_USERNAME');
+        $from       = 'admin@svyatis.com';
+        $subject    = 'Feedback from svyatis.com';
+        Mail::queue($view, $data, function($message) use ($to, $from, $subject) {
             $message->to($to)
                     ->from($from)
                     ->subject($subject);

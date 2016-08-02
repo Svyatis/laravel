@@ -32,6 +32,7 @@
         </div>
         {{ Form::close() }}
     </section>
+@endsection
 @section('aside')
     <section id="asideBar">
         @foreach($posts as $post)
@@ -48,6 +49,6 @@
         {{$posts->links()}}
     </section>
 @endsection
-@endsection
+
 
 

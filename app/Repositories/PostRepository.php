@@ -31,6 +31,17 @@ class PostRepository
     }
 
     /**
+     * @return mixed
+     */
+    public function getAll()
+    {
+        $posts = Cache::remember('allPosts', 30, function () {
+            return $this->model->all();
+        });
+        return $posts;
+    }
+
+    /**
      * @param $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -41,7 +52,21 @@ class PostRepository
             'content' => $request->get('content'),
             'author_id' => Auth::user()->id
         ]);
+        Cache::forget('allPosts');
         return back();
+    }
+
+    public function createAngular($request)
+    {
+        $post = json_decode($request->getContent(), true);
+
+        $newpost = $this->model->create([
+            'title'     => $post['title'],
+            'content'   => $post['content'],
+            'author_id' => '1'
+            ]);
+        Cache::forget('allPosts');
+        return $newpost;
     }
 
     /**
@@ -64,6 +89,7 @@ class PostRepository
     public function delete($id)
     {
         $this->model->find($id)->delete();
+        Cache::forget('allPosts');
         return true;
     }
 

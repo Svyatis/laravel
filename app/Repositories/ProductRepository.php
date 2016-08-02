@@ -47,7 +47,7 @@ class ProductRepository
      */
     public function getDetails($id)
     {
-        $product = Cache::remember('productDetails', 30, function () use ($id) {
+        $product = Cache::remember('productDetails' . $id, 30, function () use ($id) {
             return $this->model->find($id);
         });
         return $product;
